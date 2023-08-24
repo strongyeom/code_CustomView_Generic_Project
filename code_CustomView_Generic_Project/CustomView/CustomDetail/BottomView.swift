@@ -77,9 +77,10 @@ class BottomView: UIView {
         }
         
         DispatchQueue.main.async {
-            self.firstImage.layer.cornerRadius = self.firstImage.frame.width / 2
-            self.secondImage.layer.cornerRadius = self.firstImage.frame.width / 2
-            self.thirdImage.layer.cornerRadius = self.firstImage.frame.width / 2
+
+            [self.firstImage, self.secondImage, self.thirdImage].forEach {
+                $0.layer.cornerRadius = $0.frame.width / 2
+            }
         }
         
 
