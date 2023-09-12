@@ -20,6 +20,8 @@
 		26E5C9DA2A97B10000D41A5F /* TopAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C9D92A97B10000D41A5F /* TopAreaView.swift */; };
 		26E5C9DC2A97B65700D41A5F /* MiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C9DB2A97B65700D41A5F /* MiddleView.swift */; };
 		26E5C9DE2A97BDFE00D41A5F /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5C9DD2A97BDFE00D41A5F /* BottomView.swift */; };
+		26F935832AB06D70005EAAC9 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F935822AB06D70005EAAC9 /* Observable.swift */; };
+		26F935852AB06E96005EAAC9 /* NetFlexViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F935842AB06E96005EAAC9 /* NetFlexViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		26E5C9D92A97B10000D41A5F /* TopAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAreaView.swift; sourceTree = "<group>"; };
 		26E5C9DB2A97B65700D41A5F /* MiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiddleView.swift; sourceTree = "<group>"; };
 		26E5C9DD2A97BDFE00D41A5F /* BottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		26F935822AB06D70005EAAC9 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		26F935842AB06E96005EAAC9 /* NetFlexViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetFlexViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				26E5C9CE2A97A49C00D41A5F /* LoginViewController.swift */,
+				26F935822AB06D70005EAAC9 /* Observable.swift */,
+				26F935842AB06E96005EAAC9 /* NetFlexViewModel.swift */,
 			);
 			path = LoginVC;
 			sourceTree = "<group>";
@@ -211,8 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F935832AB06D70005EAAC9 /* Observable.swift in Sources */,
 				26E5C9CF2A97A49C00D41A5F /* LoginViewController.swift in Sources */,
 				26E5C9B72A979BB900D41A5F /* ViewController.swift in Sources */,
+				26F935852AB06E96005EAAC9 /* NetFlexViewModel.swift in Sources */,
 				26E5C9B32A979BB900D41A5F /* AppDelegate.swift in Sources */,
 				26E5C9DA2A97B10000D41A5F /* TopAreaView.swift in Sources */,
 				26E5C9D22A97A51100D41A5F /* CustomTextFieldView.swift in Sources */,

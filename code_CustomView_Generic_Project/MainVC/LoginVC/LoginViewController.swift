@@ -9,6 +9,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    let viewModel = NetFlexViewModel()
+    
     let mainTitleLabel = {
        let label = UILabel()
         label.text = "JACKFLEX"
@@ -61,11 +63,94 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        setConstraints()
+     
+        
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func configureView() {
         view.backgroundColor = .black
         [mainTitleLabel, stackView, signupBtn, addInfoBtn, sw].forEach {
             view.addSubview($0)
         }
         
+        emailTextField.addTarget(self, action: #selector(emailTextFieldChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordTextFieldChanged), for: .editingChanged)
+        signupBtn.addTarget(self, action: #selector(signupBtnClicked), for: .touchUpInside)
+        nicknameTextField.addTarget(self, action: #selector(nicknameTextFieldChanged), for: .editingChanged)
+        locationTextField.addTarget(self, action: #selector(locationTextFieldChanged), for: .editingChanged)
+        recommendTextField.addTarget(self, action: #selector(recommendTextFieldChanged), for: .editingChanged)
+
+        viewModel.email.bind { text in
+            self.emailTextField.text = text
+        }
+        
+        viewModel.password.bind { text in
+            self.passwordTextField.text = text
+        }
+        
+        viewModel.nickname.bind { text in
+            self.nicknameTextField.text = text
+        }
+
+        viewModel.location.bind { text in
+            self.locationTextField.text = text
+        }
+
+        viewModel.recommend.bind { text in
+            self.recommendTextField.text = text
+        }
+        
+        viewModel.isVaild.bind { isVaild in
+            self.signupBtn.isEnabled = isVaild
+            self.signupBtn.backgroundColor = isVaild ? .white : .lightGray
+        }
+        
+        viewModel.isTextVaild.bind { isVaild in
+            self.emailTextField.textColor = isVaild ? .green : .white
+            self.passwordTextField.textColor = isVaild ? .green : .white
+        }
+        
+    }
+    
+    @objc func signupBtnClicked() {
+        // 성공할때만 가능함
+        print("회원가입 버튼이 눌렸음 ")
+    }
+    
+    @objc func emailTextFieldChanged() {
+        viewModel.email.value = emailTextField.text!
+       // viewModel.checkVaildation()
+        // 두번 쓸 필요 없이 플로우순으로 한번만 만들면 됨
+       // viewModel.emailAndPasswordVaildataion()
+    }
+    
+    @objc func passwordTextFieldChanged() {
+        viewModel.password.value = passwordTextField.text!
+       // viewModel.checkVaildation()
+        viewModel.emailAndPasswordVaildataion()
+    }
+    
+    @objc func nicknameTextFieldChanged() {
+        viewModel.nickname.value = nicknameTextField.text!
+       // viewModel.checkVaildation()
+    }
+    
+    @objc func locationTextFieldChanged() {
+        viewModel.location.value = locationTextField.text!
+       // viewModel.checkVaildation()
+    }
+    
+    @objc func recommendTextFieldChanged() {
+        viewModel.recommend.value = recommendTextField.text!
+        viewModel.checkVaildation()
+    }
+    
+    func setConstraints() {
         mainTitleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
@@ -91,9 +176,7 @@ class LoginViewController: UIViewController {
             make.trailing.equalTo(stackView.snp.trailing)
             make.top.equalTo(signupBtn.snp.bottom).offset(10)
         }
-        
     }
-    
     
     
     
